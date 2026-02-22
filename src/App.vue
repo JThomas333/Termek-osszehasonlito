@@ -2,7 +2,7 @@
  import { RouterLink, RouterView } from 'vue-router'
   import axios from 'axios';
   import {onMounted} from 'vue'
-  import { useCounterStore } from './stores/counter';
+  import { useCounterStore } from './stores/';
   const counterStore = useCounterStore()
 
   onMounted(() => {
