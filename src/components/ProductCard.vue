@@ -1,15 +1,14 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
-</template>
+ 
+<div class="card">
+  <img :src="product.image" :alt="product.name" class="card-image">
+  
+</div>
 
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style>
+
+</template>
+<script>
+import { useProductStore } from '@/stores/product';
+const store = useProductStore();
+const props = defineProps({product: Object})
+</script>

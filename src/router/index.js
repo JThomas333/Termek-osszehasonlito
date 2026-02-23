@@ -1,18 +1,18 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/ProductCatalog.vue'
+import ProductCatalog from '../views/ProductCatalog.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: HomeView,
+      name: 'products',
+      component: ProductCatalog,
     },
     {
-      path: '/about',
-      name: 'about',
-      component: () => import('../components/ProductCard.vue'),
+      path: '/schema',
+      name: 'schema',
+      component: () => import('../views/ComparisonView.vue'),
     },
   ],
 })

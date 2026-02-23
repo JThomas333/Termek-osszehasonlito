@@ -1,9 +1,14 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import ProductCard from '@/components/ProductCard.vue';
+import SelectionBar from '@/components/SelectionBar.vue';
+import { useProductStore } from '@/stores/product';
+const store = useProductStore();
+
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <ProductCard />
+    <SelectionBar />
   </main>
 </template>
