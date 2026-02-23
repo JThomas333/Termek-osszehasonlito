@@ -7,8 +7,9 @@ const store = useProductStore();
 </script>
 
 <template>
-  <main>
-    <ProductCard />
+  <h1>Termékek</h1>
+  <div class="row">
+    <ProductCard v-for="p in store.products" :product="p"/>
     <SelectionBar />
-  </main>
+  </div>
 </template>

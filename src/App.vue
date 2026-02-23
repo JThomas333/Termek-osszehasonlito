@@ -8,7 +8,7 @@
   onMounted(() => {
     axios.get('http://localhost:3000/items')
     .then(res => {
-      counterStore.speakers = res.data      
+      counterStore.products = res.data      
     })
     
   })

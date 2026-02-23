@@ -5,7 +5,7 @@ import axios from 'axios'
 
 export const useProductStore = defineStore('product', () => {
   products = ref([])
-  comparison = ref([])
+  compare = ref([])
 
-  return {products, comparison }
+  return {products, compare }
 })
