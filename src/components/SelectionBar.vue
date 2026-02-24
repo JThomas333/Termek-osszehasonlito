@@ -2,11 +2,13 @@
 import { useProductStore } from '@/stores/product'
 
 const store = useProductStore()
+
+
 </script>
 
 <template>
     <div v-if="store.selectedIds.length > 1" class="selection-bar">
-        <p>Kiválasztott termékek: <strong>{{ store.selectedIds.length }}/3</strong></p>
+        <button @click="$router.push('/schema')">Kiválasztott termékek: <strong>{{ store.selectedIds.length }}/3</strong></button>
     </div>
 </template>
 

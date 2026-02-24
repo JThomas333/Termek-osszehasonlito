@@ -24,8 +24,8 @@
     
 
    
-    <table v-if="store.selectedIds.length > 1">
-        <thead>
+    <table class="table table-bordered " v-if="store.selectedIds.length > 1">
+        <thead class="table-light">
             <tr>
                 <th>Tulajdonság</th>
                 <th v-for="id in store.selectedIds" :key="id">

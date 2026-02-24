@@ -7,6 +7,7 @@ export const useProductStore = defineStore('product', () => {
   const products = ref([])
   const schema = ref([])
   const selectedIds =ref([])
+  const loading = ref(true)
 
 function findProductById(id) {
   return products.value.find(p => p.id == id)
@@ -39,5 +40,5 @@ function findProductById(id) {
     return selectedIds.value.find(x => x === id)
   }
 
-  return {products, schema, selectedIds, addToschema, removeFromschema, isSelected}
+  return {products, loading, schema, selectedIds, addToschema, removeFromschema, isSelected}
 })
