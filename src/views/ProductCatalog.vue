@@ -9,7 +9,8 @@ const store = useProductStore();
 <template>
   <h1>Termékek</h1>
   <div class="row">
-    <ProductCard v-for="p in store.products" :product="p"/>
     <SelectionBar />
+    <ProductCard v-for="p in store.products" :product="p"/>
+    
   </div>
 </template>

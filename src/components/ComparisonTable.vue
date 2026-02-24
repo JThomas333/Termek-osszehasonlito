@@ -3,19 +3,47 @@
     import {ref, onMounted, onUpdated} from 'vue'
     import { useProductStore } from '@/stores/product';
     const store = useProductStore()
-    const product = ref({})
+    
+    const fields = ref([])
+    const product = ref(null)
     
     onMounted(() =>{
-        product.value = store.products.find(x => x.id == props.item.id)
+        if (props.item != null && props.item.id != null) {
+            product.value = store.products.find(x => x.id == props.item.id)
+        }
     })
     
     onUpdated(() =>{
-        product.value = store.products.find(x => x.id == props.item.id)
+        if (props.item != null && props.item.id != null) {
+            product.value = store.products.find(x => x.id == props.item.id)
+        }
     })
 </script>
 
 <template>
-    <div>
-        {{ product.name }} 
-    </div>
+    
+
+   
+    <table v-if="store.selectedIds.length > 1">
+        <thead>
+            <tr>
+                <th>Tulajdonság</th>
+                <th v-for="id in store.selectedIds" :key="id">
+                    {{ (store.products.find(p => p.id == id)).name }}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="field in store.fields" :key="field.key">
+                <td><strong>{{ field.label }}</strong></td>
+                <td v-for="id in store.selectedIds" :key="id">
+                    <p v-if="(store.products.find(p => p.id == id))[field.key]">{{ (store.products.find(p => p.id == id))[field.key] }} {{ field.unit }}</p>
+                    <p v-else>-</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div v-else class=" text-danger">Nincs termék!</div>
+    <p @click="$router.push('/')" class="btn btn-secondary">Vissza!</p>
+    
 </template>

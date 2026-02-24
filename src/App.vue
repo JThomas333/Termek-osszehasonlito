@@ -1,22 +1,26 @@
 <script setup>
  import { RouterLink, RouterView } from 'vue-router'
-  import axios from 'axios';
+  import axios from 'axios'
   import {onMounted} from 'vue'
-  import { useCounterStore } from './stores/product';
-  const counterStore = useCounterStore()
+import { useProductStore } from './stores/product'
+
+  const store = useProductStore()
 
   onMounted(() => {
     axios.get('http://localhost:3000/items')
     .then(res => {
-      counterStore.products = res.data      
+      store.products = res.data
     })
-    
+    axios.get('http://localhost:3000/fields')
+    .then(res => {
+      store.fields = res.data
+    })
   })
 </script>
 <template>
       <nav>
-        <RouterLink to="/products">Hangszórók</RouterLink>&nbsp;
-        <RouterLink to="/schema">Összehasonlytás</RouterLink>
+        <RouterLink to="/">Hangszórók</RouterLink>&nbsp;
+        <RouterLink to="/schema">Összehasonlítás</RouterLink>
       </nav>
   
   <RouterView />
