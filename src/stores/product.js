@@ -1,7 +1,6 @@
-import { ref, computed } from 'vue'
+import { ref} from 'vue'
 import { defineStore } from 'pinia'
 import { toast } from 'vue3-toastify'
-import axios from 'axios'
 
 export const useProductStore = defineStore('product', () => {
   const products = ref([])
@@ -31,8 +30,7 @@ function findProductById(id) {
     
     selectedIds.value = selectedIds.value.filter(item => item !== id)
     let p = findProductById(id)
-    
-      toast.error(`${p.name} vissza vonták.`)
+    toast.error(`${p.name} vissza vonták.`)
     
   }
 

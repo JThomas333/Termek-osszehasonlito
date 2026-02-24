@@ -3,8 +3,6 @@
     import {ref, onMounted, onUpdated} from 'vue'
     import { useProductStore } from '@/stores/product';
     const store = useProductStore()
-    
-    //const fields = ref([])
     const product = ref(null)
     
     onMounted(() =>{
