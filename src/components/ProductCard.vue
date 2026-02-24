@@ -5,10 +5,10 @@
     <p class="card-text">Ára: {{product.price}}</p>
 
     <div class="card-footer">
-      <button v-if="store.selectedIds.length < 3" :disabled="store.isSelected(product.id)" @click="store.addToCompare(product.id)" class="btn btn-primary">
+      <button v-if="store.selectedIds.length < 3" :disabled="store.isSelected(product.id)" @click="store.addToschema(product.id)" class="btn btn-primary">
         Kiválaszt
       </button>
-      <button v-if="store.isSelected(product.id)" @click="store.removeFromCompare(product.id)" class="btn btn-danger">
+      <button v-if="store.isSelected(product.id)" @click="store.removeFromschema(product.id)" class="btn btn-danger">
         Vissza
       </button>
     </div>

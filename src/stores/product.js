@@ -5,17 +5,17 @@ import axios from 'axios'
 
 export const useProductStore = defineStore('product', () => {
   const products = ref([])
-  const compare = ref([])
+  const schema = ref([])
   const selectedIds =ref([])
 
 function findProductById(id) {
   return products.value.find(p => p.id == id)
 }
 
-  function addToCompare(id) {
+  function addToschema(id) {
 
-    let compareItem =selectedIds.value.find(i => i == id)
-    if (!compareItem) {
+    let schemaItem =selectedIds.value.find(i => i == id)
+    if (!schemaItem) {
       selectedIds.value.push(id)
       let p = findProductById(id)
       if (p) {
@@ -26,18 +26,18 @@ function findProductById(id) {
     }
   }
 
-  function removeFromCompare(id) {
+  function removeFromschema(id) {
     
     selectedIds.value = selectedIds.value.filter(item => item !== id)
     let p = findProductById(id)
-    if (p) {
-      toast.danger(`${p.name} vissza vonták.`)
-    }
+    
+      toast.error(`${p.name} vissza vonták.`)
+    
   }
 
   function isSelected(id) {
     return selectedIds.value.find(x => x === id)
   }
 
-  return {products, compare, selectedIds, addToCompare, removeFromCompare, isSelected}
+  return {products, schema, selectedIds, addToschema, removeFromschema, isSelected}
 })

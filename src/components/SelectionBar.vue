@@ -1,9 +1,7 @@
 <script setup>
 import { useProductStore } from '@/stores/product'
-import { useRouter } from 'vue-router'
 
 const store = useProductStore()
-const router = useRouter()
 </script>
 
 <template>

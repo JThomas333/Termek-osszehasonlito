@@ -4,7 +4,7 @@
     import { useProductStore } from '@/stores/product';
     const store = useProductStore()
     
-    const fields = ref([])
+    //const fields = ref([])
     const product = ref(null)
     
     onMounted(() =>{
