@@ -22,7 +22,7 @@ try {
     })
   })
 } catch (error) {
-  console.error("Hiba történt:", error.message);
+  console.error("Hiba történt az adatok betöltése közben. Kérjük, próbálja meg később újra.", error.message);
 }
  
 
