@@ -19,9 +19,6 @@
 </script>
 
 <template>
-    
-
-   
     <table class="table table-bordered " v-if="store.selectedIds.length > 1">
         <thead class="table-light">
             <tr>

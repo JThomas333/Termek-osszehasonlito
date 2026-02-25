@@ -4,7 +4,6 @@ import { toast } from 'vue3-toastify'
 
 export const useProductStore = defineStore('product', () => {
   const products = ref([])
-  const schema = ref([])
   const selectedIds =ref([])
   const loading = ref(true)
 
@@ -13,17 +12,11 @@ function findProductById(id) {
 }
 
   function addToschema(id) {
-
-    let schemaItem =selectedIds.value.find(i => i == id)
-    if (!schemaItem) {
       selectedIds.value.push(id)
       let p = findProductById(id)
       if (p) {
         toast.success(`${p.name} sikeres kiválasztás.`)
       }
-    } else {
-      toast.warning('Ez kiválasztva!')
-    }
   }
 
   function removeFromschema(id) {
@@ -38,5 +31,5 @@ function findProductById(id) {
     return selectedIds.value.find(x => x === id)
   }
 
-  return {products, loading, schema, selectedIds, addToschema, removeFromschema, isSelected}
+  return {products, loading, selectedIds, addToschema, removeFromschema, isSelected}
 })

@@ -1,6 +1,5 @@
 <script setup>
 import { useProductStore } from '@/stores/product'
-
 const store = useProductStore()
 </script>
 
